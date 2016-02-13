@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/GoJava-Practice.iml" filepath="$PROJECT_DIR$/GoJava-Practice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../GoJava - Practice/Java Basics 01/Java Basics 01.iml" filepath="$PROJECT_DIR$/../GoJava - Practice/Java Basics 01/Java Basics 01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../GoJava - Practice/Java Basics 02/Java Basics 02.iml" filepath="$PROJECT_DIR$/../GoJava - Practice/Java Basics 02/Java Basics 02.iml" />
+    </modules>
+  </component>
+</project>
