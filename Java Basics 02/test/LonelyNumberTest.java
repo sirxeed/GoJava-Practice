@@ -1,10 +1,11 @@
-/**
- * Created by Андрій on 13.02.2016.
- */
+import org.junit.Assert;
+import org.junit.Test;
+
 public class LonelyNumberTest {
 
-    @org.junit.Test
+    @Test
     public void testFind() throws Exception {
-
+        LonelyNumber test = new LonelyNumber();
+        Assert.assertEquals(5, test.find(new int[] {1,1,1,1,1,8,8,8,8,8,5}));
     }
 }
