@@ -10,7 +10,14 @@ public class Doubles {
     }
 
     public static class ParseData {
-        private int number = 0;
+        private double number = 0;
+        private boolean decimal = false;
+        private boolean isPositive = true;
+        private int decimalPow = 1;
+
+        public void setDecimal(boolean decimal) {
+            this.decimal = decimal;
+        }
 
         public void setIsPositive(boolean isPositive) {
             this.isPositive = isPositive;
@@ -24,14 +31,18 @@ public class Doubles {
             }
         }
 
-        private boolean isPositive = true;
-
-        private int getNumber() {
+        private double getNumber() {
             return number;
         }
 
         public void addDigit(int digit) {
-            number = number * 10 + digit;
+            if (decimal) {
+                number += digit / (Math.pow(10, decimalPow));
+                decimalPow++;
+            } else {
+                number = number * 10 + digit;
+            }
+
         }
     }
 
@@ -62,6 +73,13 @@ public class Doubles {
                         parseData.setIsPositive(false);
                         return NUMBER;
                     }
+                    if (c == '+') {
+                        return NUMBER;
+                    }
+                    if (c == '.') {
+                        parseData.setDecimal(true);
+                        return NUMBER;
+                    }
                     return INVALID_END;
                 }
             }, NUMBER {
@@ -69,6 +87,10 @@ public class Doubles {
                 public State next(char c, ParseData parseData) {
                     if (c - '0' >= 0 && c - '0' <= 9) {
                         parseData.addDigit(c - '0');
+                        return NUMBER;
+                    }
+                    if (c == '.') {
+                        parseData.setDecimal(true);
                         return NUMBER;
                     }
                     return INVALID_END;
