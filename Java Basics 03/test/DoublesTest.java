@@ -44,7 +44,7 @@ public class DoublesTest {
     @Test
     public void checkPositiveExponentialNumbers() {
         Double test = new Doubles().parse("6.7e2");
-        assertThat(test, is(670));
+        assertThat(test, is(670.0));
     }
 
     @Test

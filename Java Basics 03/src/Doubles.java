@@ -14,6 +14,25 @@ public class Doubles {
         private boolean decimal = false;
         private boolean isPositive = true;
         private int decimalPow = 1;
+        private boolean isExponential = false;
+        private double exponentialBase;
+
+        public void setIsExponentialPositive(boolean isExponentialPositive) {
+            this.isExponentialPositive = isExponentialPositive;
+        }
+
+        private boolean isExponentialPositive = true;
+
+        public void setIsExponential() {
+            isExponential = true;
+            if (isPositive) {
+                exponentialBase = number;
+            } else {
+                exponentialBase = -number;
+                isPositive = true;
+            }
+            number = 0;
+        }
 
         public void setDecimal(boolean decimal) {
             this.decimal = decimal;
@@ -42,7 +61,6 @@ public class Doubles {
             } else {
                 number = number * 10 + digit;
             }
-
         }
     }
 
@@ -56,7 +74,11 @@ public class Doubles {
 
         public Double getResult() {
             if (currentState == currentState.NUMBER) {
-                return new Double(parseData.getNumber() * parseData.getIsPositive());
+                if (parseData.isExponential) {
+                    return new Double(parseData.exponentialBase * Math.pow(10, parseData.getNumber()) * parseData.getIsPositive());
+                } else {
+                    return new Double(parseData.getNumber() * parseData.getIsPositive());
+                }
             }
             return null;
         }
@@ -80,6 +102,9 @@ public class Doubles {
                         parseData.setDecimal(true);
                         return NUMBER;
                     }
+                    if (c == ' ') {
+                        return INIT;
+                    }
                     return INVALID_END;
                 }
             }, NUMBER {
@@ -92,6 +117,10 @@ public class Doubles {
                     if (c == '.') {
                         parseData.setDecimal(true);
                         return NUMBER;
+                    }
+                    if (c == 'e' || c == 'E') {
+                        parseData.setIsExponential();
+                        return INIT;
                     }
                     return INVALID_END;
                 }
