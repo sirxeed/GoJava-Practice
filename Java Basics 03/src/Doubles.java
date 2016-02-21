@@ -33,12 +33,6 @@ public class Doubles {
         private boolean isExponential = false;
         private double exponentialBase;
 
-        public void setIsExponentialPositive(boolean isExponentialPositive) {
-            this.isExponentialPositive = isExponentialPositive;
-        }
-
-        private boolean isExponentialPositive = true;
-
         public void setIsExponential() {
             isExponential = true;
             if (isPositive) {
