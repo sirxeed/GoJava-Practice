@@ -1,6 +1,22 @@
 public class Doubles {
 
     public Double parse(String s) {
+        //Validation
+        boolean numbersCheck = false;
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) - '0' >= 0 && s.charAt(i) - '0' <= 9) {
+                numbersCheck = true;
+                break;
+            }
+            if (s.charAt(i) == 'e' || s.charAt(i) == 'E') {
+                break;
+            }
+        }
+        if (!numbersCheck) {
+            return null;
+        }
+
+        //Parsing
         StateMachine stateMachine = new StateMachine();
         for (int i = 0; i < s.length(); i++) {
             stateMachine.next(s.charAt(i));
@@ -32,6 +48,7 @@ public class Doubles {
                 isPositive = true;
             }
             number = 0;
+            decimal = false;
         }
 
         public void setDecimal(boolean decimal) {
@@ -56,7 +73,10 @@ public class Doubles {
 
         public void addDigit(int digit) {
             if (decimal) {
-                number += digit / (Math.pow(10, decimalPow));
+                double pow = Math.pow(10, decimalPow);
+                number *= pow;
+                number += (double) digit;
+                number /= pow;
                 decimalPow++;
             } else {
                 number = number * 10 + digit;
@@ -73,11 +93,11 @@ public class Doubles {
         }
 
         public Double getResult() {
-            if (currentState == currentState.NUMBER) {
+            if (currentState == State.NUMBER) {
                 if (parseData.isExponential) {
-                    return new Double(parseData.exponentialBase * Math.pow(10, parseData.getNumber()) * parseData.getIsPositive());
+                    return parseData.exponentialBase * Math.pow(10, parseData.getNumber() * parseData.getIsPositive());
                 } else {
-                    return new Double(parseData.getNumber() * parseData.getIsPositive());
+                    return parseData.getNumber() * parseData.getIsPositive();
                 }
             }
             return null;

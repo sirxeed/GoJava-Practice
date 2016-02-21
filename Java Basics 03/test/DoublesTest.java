@@ -36,12 +36,6 @@ public class DoublesTest {
     }
 
     @Test
-    public void checkDotOnlyNumbers() {
-        Double test = new Doubles().parse(".");
-        assertNull(test);
-    }
-
-    @Test
     public void checkPositiveExponentialNumbers() {
         Double test = new Doubles().parse("6.7e2");
         assertThat(test, is(670.0));
@@ -57,6 +51,24 @@ public class DoublesTest {
     public void checkComplexNumbers() {
         Double test = new Doubles().parse("-.7e-2");
         assertThat(test, is(-0.007));
+    }
+
+    @Test
+    public void checkInvalidInput() {
+        Double test = new Doubles().parse("-.");
+        assertNull(test);
+    }
+
+    @Test
+    public void checkDotOnly() {
+        Double test = new Doubles().parse(".");
+        assertNull(test);
+    }
+
+    @Test
+    public void checkExponentialOnly() {
+        Double test = new Doubles().parse(".e10");
+        assertNull(test);
     }
 
 }
