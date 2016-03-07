@@ -3,9 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/GoJava-Practice.iml" filepath="$PROJECT_DIR$/GoJava-Practice.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java Basics 01/Java Basics 01.iml" filepath="$PROJECT_DIR$/Java Basics 01/Java Basics 01.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java Basics 02/Java Basics 02.iml" filepath="$PROJECT_DIR$/Java Basics 02/Java Basics 02.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Java Basics 03/Java Basics 03.iml" filepath="$PROJECT_DIR$/Java Basics 03/Java Basics 03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java Practice 01/Java Practice 01.iml" filepath="$PROJECT_DIR$/Java Practice 01/Java Practice 01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java Practice 02/Java Practice 02.iml" filepath="$PROJECT_DIR$/Java Practice 02/Java Practice 02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java Practice 03/Java Practice 03.iml" filepath="$PROJECT_DIR$/Java Practice 03/Java Practice 03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java Practice 05/Java Practice 05.iml" filepath="$PROJECT_DIR$/Java Practice 05/Java Practice 05.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java Practice 06/Java Practice 06.iml" filepath="$PROJECT_DIR$/Java Practice 06/Java Practice 06.iml" />
     </modules>
   </component>
 </project>
