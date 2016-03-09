@@ -3,7 +3,6 @@ import org.junit.Test;
 
 public class CSVParserTest {
 
-    /*
     @Test
     public void testParse1() throws Exception {
         CSVParser test = new CSVParser();
@@ -44,7 +43,6 @@ public class CSVParserTest {
         Assert.assertEquals("thr,ee", test.parse("\"o\nne\",\"tw\"o\"\n\"thr,ee\",").get(1).get(0));
     }
 
-    */
     @Test
     public void testParse6() throws Exception {
         CSVParser test = new CSVParser();
